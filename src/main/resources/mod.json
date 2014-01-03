@@ -1,5 +1,4 @@
 {
-
   // Java verticle
   "main":"com.mycompany.myproject.PingVerticle",
 
