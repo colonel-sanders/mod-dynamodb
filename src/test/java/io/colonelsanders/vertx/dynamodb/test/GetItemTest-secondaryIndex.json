@@ -1,0 +1,7 @@
+{
+    "action": "GetItem",
+    "table": "us_currency",
+    "index": "year-index",
+    "document": { "year": "FY 2000" },
+    "testNotes": "this scenario fails; use the Query action to get an item by secondary index"
+}

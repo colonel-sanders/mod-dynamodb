@@ -1,0 +1,7 @@
+{
+    "action": "Query",
+    "table": "us_currency",
+    "index": "year-index",
+    "document": { "year": "FY 2000" },
+    "testNotes": "successful scenario"
+}

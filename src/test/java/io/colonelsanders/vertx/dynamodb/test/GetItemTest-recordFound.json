@@ -1,0 +1,6 @@
+{
+    "action": "GetItem",
+    "table": "us_currency",
+    "document": { "guid": "85b443bf-ccd5-4a90-8e43-3e97e7e09836" },
+    "testNotes": "successful scenario"
+}

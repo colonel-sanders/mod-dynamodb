@@ -1,9 +1,7 @@
 apply from: "gradle/vertx.gradle"
 
 dependencies {
-  provided 'com.amazonaws:aws-java-sdk:1.6.+@jar'
-  provided "org.codehaus.groovy:groovy-all:$groovyVersion"
-  provided "io.vertx:lang-groovy:$groovyLangModVersion@jar"
+  provided "com.amazonaws:aws-java-sdk:$awsApiVersion"
 }
 
 test {
@@ -16,7 +14,7 @@ def configurePom(def pom) {
     inceptionYear '2014'
     packaging 'jar'
 
-    url 'Your project url'
+    url 'https://github.com/colonel-sanders/mod-dynamodb'
 
     developers {
       developer {
@@ -27,7 +25,7 @@ def configurePom(def pom) {
     }
 
     scm {
-      url 'url to your repo - e.g. github repo url'
+      url 'https://github.com/colonel-sanders/mod-dynamodb'
     }
 
     licenses {

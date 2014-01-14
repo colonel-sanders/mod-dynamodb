@@ -1,0 +1,7 @@
+{
+    "action": "Query",
+    "table": "us_currency",
+    "index": "year-index",
+    "document": { "year": { "contains": "199" } },
+    "testNotes": "scenario fails because DynamoDB doesn't currently support 'contains' filters against indexes"
+}

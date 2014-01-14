@@ -1,0 +1,806 @@
+{
+    "meta" : {
+        "view" : {
+            "id" : "ym8u-jtw3",
+            "name" : "Annual Production Figures of United States Currency",
+            "attribution" : "Bureau of Engraving and Printing, US Treasury",
+            "attributionLink" : "http://bep.gov/uscurrency/annualproductionfigures.html",
+            "averageRating" : 0,
+            "category" : "Economic",
+            "createdAt" : 1367890798,
+            "description" : "Provided by the Bureau of Engraving and Printing (BEP), a bureau of the U.S. Department of the Treasury, this dataset details the number of $1, $2, $5, $10, $20, $50, and $100 notes printed each year by the bureau.",
+            "displayType" : "table",
+            "downloadCount" : 318,
+            "indexUpdatedAt" : 1385015565,
+            "licenseId" : "PUBLIC_DOMAIN",
+            "newBackend" : false,
+            "numberOfComments" : 0,
+            "oid" : 3506376,
+            "publicationAppendEnabled" : false,
+            "publicationDate" : 1367946229,
+            "publicationGroup" : 841703,
+            "publicationStage" : "published",
+            "rowClass" : "http://www.w3.org/ns/dcat#Dataset",
+            "rowsUpdatedAt" : 1367946217,
+            "rowsUpdatedBy" : "risw-jeum",
+            "tableId" : 843091,
+            "totalTimesRated" : 0,
+            "viewCount" : 13677,
+            "viewLastModified" : 1367946229,
+            "viewType" : "tabular",
+            "columns" : [ {
+                "id" : -1,
+                "name" : "sid",
+                "dataTypeName" : "meta_data",
+                "fieldName" : ":sid",
+                "position" : 0,
+                "renderTypeName" : "meta_data",
+                "format" : {
+                }
+            }, {
+                "id" : -1,
+                "name" : "id",
+                "dataTypeName" : "meta_data",
+                "fieldName" : ":id",
+                "position" : 0,
+                "renderTypeName" : "meta_data",
+                "format" : {
+                }
+            }, {
+                "id" : -1,
+                "name" : "position",
+                "dataTypeName" : "meta_data",
+                "fieldName" : ":position",
+                "position" : 0,
+                "renderTypeName" : "meta_data",
+                "format" : {
+                }
+            }, {
+                "id" : -1,
+                "name" : "created_at",
+                "dataTypeName" : "meta_data",
+                "fieldName" : ":created_at",
+                "position" : 0,
+                "renderTypeName" : "meta_data",
+                "format" : {
+                }
+            }, {
+                "id" : -1,
+                "name" : "created_meta",
+                "dataTypeName" : "meta_data",
+                "fieldName" : ":created_meta",
+                "position" : 0,
+                "renderTypeName" : "meta_data",
+                "format" : {
+                }
+            }, {
+                "id" : -1,
+                "name" : "updated_at",
+                "dataTypeName" : "meta_data",
+                "fieldName" : ":updated_at",
+                "position" : 0,
+                "renderTypeName" : "meta_data",
+                "format" : {
+                }
+            }, {
+                "id" : -1,
+                "name" : "updated_meta",
+                "dataTypeName" : "meta_data",
+                "fieldName" : ":updated_meta",
+                "position" : 0,
+                "renderTypeName" : "meta_data",
+                "format" : {
+                }
+            }, {
+                "id" : -1,
+                "name" : "meta",
+                "dataTypeName" : "meta_data",
+                "fieldName" : ":meta",
+                "position" : 0,
+                "renderTypeName" : "meta_data",
+                "format" : {
+                }
+            }, {
+                "id" : 63976514,
+                "name" : "Fiscal Year",
+                "dataTypeName" : "text",
+                "fieldName" : "fiscal_year",
+                "position" : 1,
+                "renderTypeName" : "text",
+                "tableColumnId" : 10218282,
+                "width" : 100,
+                "cachedContents" : {
+                    "non_null" : 33,
+                    "smallest" : "FY 1980",
+                    "null" : 0,
+                    "largest" : "FY 2012",
+                    "top" : [ {
+                        "count" : 20,
+                        "item" : "FY 1980"
+                    }, {
+                        "count" : 19,
+                        "item" : "FY 1981"
+                    }, {
+                        "count" : 18,
+                        "item" : "FY 1982"
+                    }, {
+                        "count" : 17,
+                        "item" : "FY 1983"
+                    }, {
+                        "count" : 16,
+                        "item" : "FY 1984"
+                    }, {
+                        "count" : 15,
+                        "item" : "FY 1985"
+                    }, {
+                        "count" : 14,
+                        "item" : "FY 1986"
+                    }, {
+                        "count" : 13,
+                        "item" : "FY 1987"
+                    }, {
+                        "count" : 12,
+                        "item" : "FY 1988"
+                    }, {
+                        "count" : 11,
+                        "item" : "FY 1989"
+                    }, {
+                        "count" : 10,
+                        "item" : "FY 1990"
+                    }, {
+                        "count" : 9,
+                        "item" : "FY 1991"
+                    }, {
+                        "count" : 8,
+                        "item" : "FY 1992"
+                    }, {
+                        "count" : 7,
+                        "item" : "FY 1993"
+                    }, {
+                        "count" : 6,
+                        "item" : "FY 1994"
+                    }, {
+                        "count" : 5,
+                        "item" : "FY 1995"
+                    }, {
+                        "count" : 4,
+                        "item" : "FY 1996"
+                    }, {
+                        "count" : 3,
+                        "item" : "FY 1997"
+                    }, {
+                        "count" : 2,
+                        "item" : "FY 1998"
+                    }, {
+                        "count" : 1,
+                        "item" : "FY 1999"
+                    } ]
+                },
+                "format" : {
+                }
+            }, {
+                "id" : 63976515,
+                "name" : "$1 Bills",
+                "dataTypeName" : "text",
+                "fieldName" : "_1_bills",
+                "position" : 2,
+                "renderTypeName" : "text",
+                "tableColumnId" : 10218283,
+                "width" : 100,
+                "cachedContents" : {
+                    "non_null" : 33,
+                    "smallest" : "1,856,000,000",
+                    "null" : 0,
+                    "largest" : "5,190,400,000",
+                    "top" : [ {
+                        "count" : 20,
+                        "item" : "1,939,840,000"
+                    }, {
+                        "count" : 19,
+                        "item" : "1,954,560,000"
+                    }, {
+                        "count" : 18,
+                        "item" : "2,040,320,000"
+                    }, {
+                        "count" : 17,
+                        "item" : "2,229,760,000"
+                    }, {
+                        "count" : 16,
+                        "item" : "2,771,200,000"
+                    }, {
+                        "count" : 15,
+                        "item" : "2,851,200,000"
+                    }, {
+                        "count" : 14,
+                        "item" : "3,123,200,000"
+                    }, {
+                        "count" : 13,
+                        "item" : "3,232,000,000"
+                    }, {
+                        "count" : 12,
+                        "item" : "2,960,000,000"
+                    }, {
+                        "count" : 11,
+                        "item" : "2,860,800,000"
+                    }, {
+                        "count" : 10,
+                        "item" : "3,148,800,000"
+                    }, {
+                        "count" : 9,
+                        "item" : "3,212,800,000"
+                    }, {
+                        "count" : 8,
+                        "item" : "4,089,600,000"
+                    }, {
+                        "count" : 7,
+                        "item" : "3,513,600,000"
+                    }, {
+                        "count" : 6,
+                        "item" : "4,563,200,000"
+                    }, {
+                        "count" : 5,
+                        "item" : "4,428,800,000"
+                    }, {
+                        "count" : 4,
+                        "item" : "4,166,400,000"
+                    }, {
+                        "count" : 3,
+                        "item" : "4,646,400,000"
+                    }, {
+                        "count" : 2,
+                        "item" : "3,814,400,000"
+                    }, {
+                        "count" : 1,
+                        "item" : "3,539,200,000"
+                    } ]
+                },
+                "format" : {
+                }
+            }, {
+                "id" : 63976516,
+                "name" : "$2 Bills",
+                "dataTypeName" : "text",
+                "fieldName" : "_2_bills",
+                "position" : 3,
+                "renderTypeName" : "text",
+                "tableColumnId" : 10218284,
+                "width" : 100,
+                "cachedContents" : {
+                    "non_null" : 33,
+                    "smallest" : "102,400,000",
+                    "null" : 0,
+                    "largest" : " N/A",
+                    "top" : [ {
+                        "count" : 20,
+                        "item" : "N/A"
+                    }, {
+                        "count" : 19,
+                        "item" : "51,200,000"
+                    }, {
+                        "count" : 18,
+                        "item" : "102,400,000"
+                    }, {
+                        "count" : 17,
+                        "item" : "121,600,000"
+                    }, {
+                        "count" : 16,
+                        "item" : "230,400,000"
+                    }, {
+                        "count" : 15,
+                        "item" : " N/A"
+                    }, {
+                        "count" : 14,
+                        "item" : "134,400,000"
+                    } ]
+                },
+                "format" : {
+                }
+            }, {
+                "id" : 63976517,
+                "name" : "$5 Bills",
+                "dataTypeName" : "text",
+                "fieldName" : "_5_bills",
+                "position" : 4,
+                "renderTypeName" : "text",
+                "tableColumnId" : 10218285,
+                "width" : 100,
+                "cachedContents" : {
+                    "non_null" : 33,
+                    "smallest" : "1,004,800,000",
+                    "null" : 0,
+                    "largest" : "992,000,000",
+                    "top" : [ {
+                        "count" : 20,
+                        "item" : "427,520,000"
+                    }, {
+                        "count" : 19,
+                        "item" : "519,680,000"
+                    }, {
+                        "count" : 18,
+                        "item" : "614,400,000"
+                    }, {
+                        "count" : 17,
+                        "item" : "583,680,000"
+                    }, {
+                        "count" : 16,
+                        "item" : "716,800,000"
+                    }, {
+                        "count" : 15,
+                        "item" : "777,600,000"
+                    }, {
+                        "count" : 14,
+                        "item" : "844,800,000"
+                    }, {
+                        "count" : 13,
+                        "item" : "780,800,000"
+                    }, {
+                        "count" : 12,
+                        "item" : "745,600,000"
+                    }, {
+                        "count" : 11,
+                        "item" : "835,200,000"
+                    }, {
+                        "count" : 10,
+                        "item" : "912,000,000"
+                    }, {
+                        "count" : 9,
+                        "item" : "979,200,000"
+                    }, {
+                        "count" : 8,
+                        "item" : "787,200,000"
+                    }, {
+                        "count" : 7,
+                        "item" : "1,126,400,000"
+                    }, {
+                        "count" : 6,
+                        "item" : "1,004,800,000"
+                    }, {
+                        "count" : 5,
+                        "item" : "992,000,000"
+                    }, {
+                        "count" : 4,
+                        "item" : "1,158,400,000"
+                    }, {
+                        "count" : 3,
+                        "item" : "896,000,000"
+                    }, {
+                        "count" : 2,
+                        "item" : "857,600,000"
+                    }, {
+                        "count" : 1,
+                        "item" : "832,000,000"
+                    } ]
+                },
+                "format" : {
+                }
+            }, {
+                "id" : 63976518,
+                "name" : "$10 Bills",
+                "dataTypeName" : "text",
+                "fieldName" : "_10_bills",
+                "position" : 5,
+                "renderTypeName" : "text",
+                "tableColumnId" : 10218286,
+                "width" : 100,
+                "cachedContents" : {
+                    "non_null" : 33,
+                    "smallest" : "1,011,200,000",
+                    "null" : 0,
+                    "largest" : "N/A",
+                    "top" : [ {
+                        "count" : 20,
+                        "item" : "495,360,000"
+                    }, {
+                        "count" : 19,
+                        "item" : "536,320,000"
+                    }, {
+                        "count" : 18,
+                        "item" : "540,160,000"
+                    }, {
+                        "count" : 17,
+                        "item" : "592,640,000"
+                    }, {
+                        "count" : 16,
+                        "item" : "812,800,000"
+                    }, {
+                        "count" : 15,
+                        "item" : "784,000,000"
+                    }, {
+                        "count" : 14,
+                        "item" : "678,000,000"
+                    }, {
+                        "count" : 13,
+                        "item" : "697,600,000"
+                    }, {
+                        "count" : 12,
+                        "item" : "652,800,000"
+                    }, {
+                        "count" : 11,
+                        "item" : "771,200,000"
+                    }, {
+                        "count" : 10,
+                        "item" : "1,036,800,000"
+                    }, {
+                        "count" : 9,
+                        "item" : "640,800,000"
+                    }, {
+                        "count" : 8,
+                        "item" : "793,600,000"
+                    }, {
+                        "count" : 7,
+                        "item" : "672,000,000"
+                    }, {
+                        "count" : 6,
+                        "item" : "1,011,200,000"
+                    }, {
+                        "count" : 5,
+                        "item" : "998,400,000"
+                    }, {
+                        "count" : 4,
+                        "item" : "761,600,000"
+                    }, {
+                        "count" : 3,
+                        "item" : "614,400,000"
+                    }, {
+                        "count" : 2,
+                        "item" : "492,800,000"
+                    }, {
+                        "count" : 1,
+                        "item" : "1,100,800,000"
+                    } ]
+                },
+                "format" : {
+                }
+            }, {
+                "id" : 63976550,
+                "name" : "$20 Bills",
+                "dataTypeName" : "text",
+                "fieldName" : "_20_bills",
+                "position" : 6,
+                "renderTypeName" : "text",
+                "tableColumnId" : 10218318,
+                "width" : 100,
+                "cachedContents" : {
+                    "non_null" : 33,
+                    "smallest" : "1,017,600,000",
+                    "null" : 0,
+                    "largest" : "994,560,000",
+                    "top" : [ {
+                        "count" : 20,
+                        "item" : "634,880,000"
+                    }, {
+                        "count" : 19,
+                        "item" : "812,800,000"
+                    }, {
+                        "count" : 18,
+                        "item" : "683,520,000"
+                    }, {
+                        "count" : 17,
+                        "item" : "994,560,000"
+                    }, {
+                        "count" : 16,
+                        "item" : "1,292,800,000"
+                    }, {
+                        "count" : 15,
+                        "item" : "1,449,600,000"
+                    }, {
+                        "count" : 14,
+                        "item" : "1,475,200,000"
+                    }, {
+                        "count" : 13,
+                        "item" : "1,472,000,000"
+                    }, {
+                        "count" : 12,
+                        "item" : "1,350,400,000"
+                    }, {
+                        "count" : 11,
+                        "item" : "1,526,400,000"
+                    }, {
+                        "count" : 10,
+                        "item" : "1,801,600,000"
+                    }, {
+                        "count" : 9,
+                        "item" : "1,926,400,000"
+                    }, {
+                        "count" : 8,
+                        "item" : "1,760,000,000"
+                    }, {
+                        "count" : 7,
+                        "item" : "2,169,600,000"
+                    }, {
+                        "count" : 6,
+                        "item" : "2,252,800,000"
+                    }, {
+                        "count" : 5,
+                        "item" : "2,476,800,000"
+                    }, {
+                        "count" : 4,
+                        "item" : "1,363,200,000"
+                    }, {
+                        "count" : 3,
+                        "item" : "1,881,600,000"
+                    }, {
+                        "count" : 2,
+                        "item" : "2,278,400,000"
+                    }, {
+                        "count" : 1,
+                        "item" : "4,134,400,000"
+                    } ]
+                },
+                "format" : {
+                }
+            }, {
+                "id" : 63976551,
+                "name" : "$50 Bills",
+                "dataTypeName" : "text",
+                "fieldName" : "_50_bills",
+                "position" : 7,
+                "renderTypeName" : "text",
+                "tableColumnId" : 10218319,
+                "width" : 100,
+                "cachedContents" : {
+                    "non_null" : 33,
+                    "smallest" : "102,400,000",
+                    "null" : 0,
+                    "largest" : "N/A",
+                    "top" : [ {
+                        "count" : 20,
+                        "item" : "56,960,000"
+                    }, {
+                        "count" : 19,
+                        "item" : "67,200,000"
+                    }, {
+                        "count" : 18,
+                        "item" : "94,720,000"
+                    }, {
+                        "count" : 17,
+                        "item" : "115,200,000"
+                    }, {
+                        "count" : 16,
+                        "item" : "128,000,000"
+                    }, {
+                        "count" : 15,
+                        "item" : "137,600,000"
+                    }, {
+                        "count" : 14,
+                        "item" : "182,400,000"
+                    }, {
+                        "count" : 13,
+                        "item" : "195,200,000"
+                    }, {
+                        "count" : 12,
+                        "item" : "144,400,000"
+                    }, {
+                        "count" : 11,
+                        "item" : "134,400,000"
+                    }, {
+                        "count" : 10,
+                        "item" : "556,800,000"
+                    }, {
+                        "count" : 9,
+                        "item" : "259,200,000"
+                    }, {
+                        "count" : 8,
+                        "item" : "147,200,000"
+                    }, {
+                        "count" : 7,
+                        "item" : "441,600,000"
+                    }, {
+                        "count" : 6,
+                        "item" : "406,400,000"
+                    }, {
+                        "count" : 5,
+                        "item" : "723,200,000"
+                    }, {
+                        "count" : 4,
+                        "item" : "694,400,000"
+                    }, {
+                        "count" : 3,
+                        "item" : "N/A"
+                    }, {
+                        "count" : 2,
+                        "item" : "102,400,000"
+                    }, {
+                        "count" : 1,
+                        "item" : "211,200,000"
+                    } ]
+                },
+                "format" : {
+                }
+            }, {
+                "id" : 63976552,
+                "name" : "$100 Bills",
+                "dataTypeName" : "text",
+                "fieldName" : "_100_bills",
+                "position" : 8,
+                "renderTypeName" : "text",
+                "tableColumnId" : 10218320,
+                "width" : 100,
+                "cachedContents" : {
+                    "non_null" : 33,
+                    "smallest" : "1,088,000,000",
+                    "null" : 0,
+                    "largest" : "N/A",
+                    "top" : [ {
+                        "count" : 20,
+                        "item" : "100,480,000"
+                    }, {
+                        "count" : 19,
+                        "item" : "118,400,000"
+                    }, {
+                        "count" : 18,
+                        "item" : "108,800,000"
+                    }, {
+                        "count" : 17,
+                        "item" : "85,760,000"
+                    }, {
+                        "count" : 16,
+                        "item" : "137,600,000"
+                    }, {
+                        "count" : 15,
+                        "item" : "160,000,000"
+                    }, {
+                        "count" : 14,
+                        "item" : "176,000,000"
+                    }, {
+                        "count" : 13,
+                        "item" : "217,600,000"
+                    }, {
+                        "count" : 12,
+                        "item" : "201,600,000"
+                    }, {
+                        "count" : 11,
+                        "item" : "240,000,000"
+                    }, {
+                        "count" : 10,
+                        "item" : "956,800,000"
+                    }, {
+                        "count" : 9,
+                        "item" : "323,200,000"
+                    }, {
+                        "count" : 8,
+                        "item" : "604,800,000"
+                    }, {
+                        "count" : 7,
+                        "item" : "595,200,000"
+                    }, {
+                        "count" : 6,
+                        "item" : "1,251,200,000"
+                    }, {
+                        "count" : 5,
+                        "item" : "649,600,000"
+                    }, {
+                        "count" : 4,
+                        "item" : "764,800,000"
+                    }, {
+                        "count" : 3,
+                        "item" : "1,542,400,000"
+                    }, {
+                        "count" : 2,
+                        "item" : "N/A"
+                    }, {
+                        "count" : 1,
+                        "item" : "854,400,000"
+                    } ]
+                },
+                "format" : {
+                }
+            } ],
+            "grants" : [ {
+                "inherited" : false,
+                "type" : "viewer",
+                "flags" : [ "public" ]
+            } ],
+            "license" : {
+                "name" : "Public Domain"
+            },
+            "metadata" : {
+                "custom_fields" : {
+                    "Dataset Summary" : {
+                        "Sub-Agency" : "Bureau of Engraving and Printing",
+                        "Date Updated" : "5/01/2013",
+                        "High Value Dataset" : "Yes",
+                        "Date Released" : "5/01/2013",
+                        "Time Period" : "FY1980 thorugh FY2012",
+                        "Frequency" : "Annual",
+                        "Suggested by Public" : "Yes",
+                        "Agency" : "Department of the Treasury"
+                    },
+                    "Data Description" : {
+                        "Data Dictionary" : "TBA - Project Open Data Deliverable",
+                        "Data Collection Instrument" : "",
+                        "Collection Mode" : "Manual/Automated"
+                    },
+                    "Additional Dataset Documentation" : {
+                        "Technical Documentation" : "TBA - Project Open Data Deliverable"
+                    },
+                    "Data.gov Communities" : {
+                        "Communities" : ""
+                    },
+                    "Dataset Coverage" : {
+                        "Geographic Coverage" : "National/International",
+                        "Granularity" : "",
+                        "Unit of Analysis" : "single unit"
+                    },
+                    "Dataset Information" : {
+                        "Data.gov Data Category Type" : "Government Finance",
+                        "Unique ID" : "",
+                        "Specialized Data Category Designation" : "",
+                        "Extended Type" : ""
+                    },
+                    "Contributing Agency Information" : {
+                        "Agency Data Series Page" : "http://bep.gov/uscurrency/annualproductionfigures.html",
+                        "Agency Program Page" : "http://bep.gov/uscurrency.html",
+                        "Citation" : "http://bep.gov/"
+                    },
+                    "Data Quality" : {
+                        "Data Quality Certification" : "Completed",
+                        "Privacy and Confidentiality" : "Completed"
+                    }
+                },
+                "renderTypeConfig" : {
+                    "visible" : {
+                        "table" : true
+                    }
+                },
+                "availableDisplayTypes" : [ "table", "fatrow", "page" ],
+                "rdfSubject" : "0",
+                "attachments" : [ {
+                    "blobId" : "ECF11B77-947A-4ACF-8575-2D1E81388C5E",
+                    "name" : "BEP_Annual-Production-Figures_1980-2012.xls",
+                    "filename" : "BEP_Annual-Production-Figures_1980-2012.xls"
+                } ],
+                "rdfClass" : "http://www.w3.org/ns/dcat#Dataset"
+            },
+            "owner" : {
+                "id" : "tdcd-t7rh",
+                "displayName" : "Samuel Wong (TREAS-OCIO)",
+                "screenName" : "Samuel Wong (TREAS-OCIO)"
+            },
+            "query" : {
+            },
+            "rights" : [ "read" ],
+            "tableAuthor" : {
+                "id" : "tdcd-t7rh",
+                "displayName" : "Samuel Wong (TREAS-OCIO)",
+                "screenName" : "Samuel Wong (TREAS-OCIO)"
+            },
+            "tags" : [ "currency", "money", "dollars", "trade", "business", "denomination", "treasury", "production", "circulation", "printing" ],
+            "flags" : [ "default" ]
+        }
+    },
+    "data" : [ [ 1, "54CC7A71-DBB5-4FDD-A086-1E489CCEF7D4", 1, 1367946209, "697954", 1367946209, "697954", "{\n}", "FY 1980", "1,939,840,000", "N/A", "427,520,000", "495,360,000", "634,880,000", "56,960,000", "100,480,000" ]
+        , [ 2, "6993E6C5-01F1-4CC9-9322-FC9BA96A70BB", 2, 1367946209, "697954", 1367946209, "697954", "{\n}", "FY 1981", "1,954,560,000", "N/A", "519,680,000", "536,320,000", "812,800,000", "67,200,000", "118,400,000" ]
+        , [ 3, "B63E18C6-FBD3-4526-8975-0DF23429FF76", 3, 1367946209, "697954", 1367946209, "697954", "{\n}", "FY 1982", "2,040,320,000", "N/A", "614,400,000", "540,160,000", "683,520,000", "94,720,000", "108,800,000" ]
+        , [ 4, "BD7792E3-82A3-41C5-8B35-2FE11EC11934", 4, 1367946209, "697954", 1367946209, "697954", "{\n}", "FY 1983", "2,229,760,000", "N/A", "583,680,000", "592,640,000", "994,560,000", "115,200,000", "85,760,000" ]
+        , [ 5, "F2A28D4A-A59E-40FE-B244-4F02EAF07EFB", 5, 1367946209, "697954", 1367946209, "697954", "{\n}", "FY 1984", "2,771,200,000", "N/A", "716,800,000", "812,800,000", "1,292,800,000", "128,000,000", "137,600,000" ]
+        , [ 6, "CA09F4AF-D512-408B-AD33-C550904022E7", 6, 1367946209, "697954", 1367946209, "697954", "{\n}", "FY 1985", "2,851,200,000", "N/A", "777,600,000", "784,000,000", "1,449,600,000", "137,600,000", "160,000,000" ]
+        , [ 7, "C9960CC7-849B-4417-8FD5-F01E063B53B7", 7, 1367946209, "697954", 1367946209, "697954", "{\n}", "FY 1986", "3,123,200,000", "N/A", "844,800,000", "678,000,000", "1,475,200,000", "182,400,000", "176,000,000" ]
+        , [ 8, "C13EE583-2665-4AC9-8785-751D59E4FC69", 8, 1367946209, "697954", 1367946209, "697954", "{\n}", "FY 1987", "3,232,000,000", "N/A", "780,800,000", "697,600,000", "1,472,000,000", "195,200,000", "217,600,000" ]
+        , [ 9, "686727E8-0EED-430D-9F4A-B16EEF2F0F96", 9, 1367946209, "697954", 1367946209, "697954", "{\n}", "FY 1988", "2,960,000,000", "N/A", "745,600,000", "652,800,000", "1,350,400,000", "144,400,000", "160,000,000" ]
+        , [ 10, "FD88C278-FC40-4DE1-8F79-BDAE3291B9DF", 10, 1367946209, "697954", 1367946209, "697954", "{\n}", "FY 1989", "2,860,800,000", "N/A", "835,200,000", "771,200,000", "1,526,400,000", "134,400,000", "201,600,000" ]
+        , [ 11, "8D15AC37-0BCE-4090-BF0E-90630F21E9FF", 11, 1367946209, "697954", 1367946209, "697954", "{\n}", "FY 1990", "3,148,800,000", "N/A", "912,000,000", "771,200,000", "1,801,600,000", "128,000,000", "240,000,000" ]
+        , [ 12, "FE9C5CB9-228E-40B8-9A9A-AC76C0E95C68", 12, 1367946209, "697954", 1367946209, "697954", "{\n}", "FY 1991", "3,212,800,000", "N/A", "979,200,000", "812,800,000", "1,926,400,000", "128,000,000", "956,800,000" ]
+        , [ 13, "EBF2682D-2245-4511-B5AD-246AC9A5B79D", 13, 1367946209, "697954", 1367946209, "697954", "{\n}", "FY 1992", "4,089,600,000", "N/A", "787,200,000", "1,036,800,000", "1,760,000,000", "556,800,000", "217,600,000" ]
+        , [ 14, "AC0DC835-1F64-4EE7-9BED-CFF1F7DB6015", 14, 1367946209, "697954", 1367946209, "697954", "{\n}", "FY 1993", "3,513,600,000", "N/A", "1,126,400,000", "640,800,000", "2,169,600,000", "259,200,000", "323,200,000" ]
+        , [ 15, "17C3D8FD-2C04-4FDC-9D3C-0B1146411230", 15, 1367946209, "697954", 1367946209, "697954", "{\n}", "FY 1994", "4,563,200,000", "N/A", "1,004,800,000", "793,600,000", "2,252,800,000", "115,200,000", "604,800,000" ]
+        , [ 16, "20DEA1F1-915B-4767-B7B5-73998E13D3DE", 16, 1367946209, "697954", 1367946209, "697954", "{\n}", "FY 1995", "4,428,800,000", "N/A", "992,000,000", "672,000,000", "2,476,800,000", "147,200,000", "595,200,000" ]
+        , [ 17, "E0C9A196-740D-47AC-8599-7A18BBDD9EBE", 17, 1367946209, "697954", 1367946209, "697954", "{\n}", "FY 1996", "4,166,400,000", "51,200,000", "1,158,400,000", "1,011,200,000", "1,363,200,000", "441,600,000", "1,251,200,000" ]
+        , [ 18, "85B443BF-CCD5-4A90-8E43-3E97E7E09836", 18, 1367946209, "697954", 1367946209, "697954", "{\n}", "FY 1997", "4,646,400,000", "102,400,000", "896,000,000", "998,400,000", "1,881,600,000", "406,400,000", "649,600,000" ]
+        , [ 19, "8FF777E3-19A4-40ED-B9DC-767C1B7AE5A0", 19, 1367946209, "697954", 1367946209, "697954", "{\n}", "FY 1998", "3,814,400,000", "N/A", "857,600,000", "761,600,000", "2,278,400,000", "723,200,000", "764,800,000" ]
+        , [ 20, "9BAB6E76-3FC3-4AC6-92AE-2AC3A419C8D6", 20, 1367946209, "697954", 1367946209, "697954", "{\n}", "FY 1999", "3,539,200,000", "N/A", "832,000,000", "614,400,000", "4,134,400,000", "694,400,000", "1,542,400,000" ]
+        , [ 21, "BD999FAF-9BE9-43EE-B079-7F1BF708D28B", 21, 1367946209, "697954", 1367946209, "697954", "{\n}", "FY 2000", "5,190,400,000", "N/A", "640,000,000", "492,800,000", "2,707,200,000", "N/A", "N/A" ]
+        , [ 22, "94E73419-6204-4AAB-A79F-41E07183BC08", 22, 1367946209, "697954", 1367946209, "697954", "{\n}", "FY 2001", "5,145,600,000", "N/A", "979,200,000", "652,800,000", "1,017,600,000", "N/A", "201,600,000" ]
+        , [ 23, "F4B3F533-594D-4351-B51D-0B4FA16B4A77", 23, 1367946209, "697954", 1367946209, "697954", "{\n}", "FY 2002", "2,880,000,000", "N/A", "1,350,400,000", "1,100,800,000", "1,068,800,000", "N/A", "604,800,000" ]
+        , [ 24, "45EE616D-8AC3-487D-B3B3-FCF6BF13B6A7", 24, 1367946209, "697954", 1367946209, "697954", "{\n}", "FY 2003", "3,699,200,000", "N/A", "550,400,000", "249,600,000", "2,700,800,000", "102,400,000", "854,400,000" ]
+        , [ 25, "9BA64FA2-C47B-46CB-942D-284F524A5675", 25, 1367946209, "697954", 1367946209, "697954", "{\n}", "FY 2004", "4,147,200,000", "121,600,000", "627,200,000", "403,200,000", "2,707,200,000", "211,200,000", "515,200,000" ]
+        , [ 26, "A4966784-BF99-48AB-B2B5-42052B490809", 26, 1367946209, "697954", 1367946209, "697954", "{\n}", "FY 2005", "3,475,200,000", "N/A", "576,000,000", "512,000,000", "3,059,200,000", "345,600,000", "668,800,000" ]
+        , [ 27, "88AC7DDF-CF88-4FD4-822F-D72A8622AAC2", 27, 1367946209, "697954", 1367946209, "697954", "{\n}", "FY 2006", "4,512,000,000", "230,400,000", "800,000,000", "851,200,000", "889,600,000", "N/A", "950,400,000" ]
+        , [ 28, "519F1408-EFA4-489F-ADC0-4F8046F54BE1", 28, 1367946209, "697954", 1367946209, "697954", "{\n}", "FY 2007", "4,147,200,000", "N/A", "1,401,600,000", "83,200,000", "1,971,200,000", "428,800,000", "1,088,000,000" ]
+        , [ 29, "8DEC43C1-66B8-43EF-8B5C-96347BD033A1", 29, 1367946209, "697954", 1367946209, "697954", "{\n}", "FY 2008", "3,577,600,000", "N/A", "1,203,200,000", "1,094,400,000", "633,600,000", "N/A", "1,209,600,000" ]
+        , [ 30, "D1BF0DDD-6A87-46A1-8CE5-31DCF023A8E5", 30, 1367946209, "697954", 1367946209, "697954", "{\n}", "FY 2009", "2,636,800,000", "N/A", "384,000,000", "345,600,000", "716,800,000", "371,200,000", "1,785,600,000" ]
+        , [ 31, "711E54DD-EC91-4DAC-BEF1-AB9013BFEF5D", 31, 1367946209, "697954", 1367946209, "697954", "{\n}", "FY 2010", "1,856,000,000", "N/A", "352,000,000", "N/A", "2,265,600,000", "N/A", "1,907,200,000" ]
+        , [ 32, "F9020858-35FB-4238-B6C2-8F98D9FB3828", 32, 1367946209, "697954", 1367946209, "697954", "{\n}", "FY 2011", "2,918,400,000", " N/A", "486,400,000", "499,200,000", "902,400,000", "179,200,000", "723,200,000" ]
+        , [ 33, "4A0CD2C8-C160-4B3C-827C-0A659734F3C5", 33, 1367946209, "697954", 1367946209, "697954", "{\n}", "FY 2012", "2,022,400,000", "134,400,000", "729,600,000", "652,800,000", "1,568,000,000", "246,400,000", "3,027,200,000" ]
+    ]
+}

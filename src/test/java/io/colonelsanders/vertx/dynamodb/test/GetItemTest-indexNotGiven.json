@@ -1,0 +1,6 @@
+{
+    "action": "GetItem",
+    "table": "us_currency",
+    "document": { "ones": "5145600000" },
+    "testNotes": "this scenario fails because the condition must match the index of the table"
+}
