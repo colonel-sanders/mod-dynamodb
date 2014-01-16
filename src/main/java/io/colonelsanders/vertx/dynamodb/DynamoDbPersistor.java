@@ -1,13 +1,11 @@
 package io.colonelsanders.vertx.dynamodb;
 
-import com.amazonaws.handlers.AsyncHandler;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBAsync;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBAsyncClient;
-import com.amazonaws.services.dynamodbv2.model.GetItemRequest;
-import com.amazonaws.services.dynamodbv2.model.GetItemResult;
-import com.amazonaws.services.dynamodbv2.model.QueryRequest;
-import com.amazonaws.services.dynamodbv2.model.QueryResult;
-import io.colonelsanders.vertx.dynamodb.json.JsonConverter;
+import io.colonelsanders.vertx.dynamodb.actions.DynamoDbAction;
+import io.colonelsanders.vertx.dynamodb.actions.GetItemAction;
+import io.colonelsanders.vertx.dynamodb.actions.QueryAction;
+import io.colonelsanders.vertx.dynamodb.actions.ScanAction;
 import org.vertx.java.busmods.BusModBase;
 import org.vertx.java.core.Handler;
 import org.vertx.java.core.eventbus.Message;
@@ -43,65 +41,16 @@ public class DynamoDbPersistor extends BusModBase implements Handler<Message<Jso
     }
 
     protected void initiateAction(Action action, Message<JsonObject> message) {
+        DynamoDbAction executor = null;
         switch (action) {
             case GetItem:
-                doGetItem(message); break;
+                executor = new GetItemAction(); break;
             case Query:
-                doQuery(message); break;
+                executor = new QueryAction(); break;
+            case Scan:
+                executor = new ScanAction(); break;
         }
-    }
-
-    private void doGetItem(final Message<JsonObject> message) {
-        String table = message.body().getString("table");
-        GetItemRequest request = new GetItemRequest()
-                .withTableName(table)
-                .withKey(JsonConverter.attributesFromJson(message.body().getObject("document")));
-        dbClient.getItemAsync(request, new AsyncHandler<GetItemRequest, GetItemResult>() {
-            @Override
-            public void onError(Exception exception) {
-                logger.error("GetItem failed", exception);
-                fail(message, exception);
-            }
-
-            @Override
-            public void onSuccess(GetItemRequest request, GetItemResult result) {
-                message.reply(new JsonObject()
-                        .putString("status", "ok")
-                        .putObject("result", JsonConverter.resultToJson(result.getItem())));
-            }
-        });
-    }
-
-    private static void fail(Message<JsonObject> message, Exception exception) {
-        message.reply(new JsonObject().putString("status", "error").putString("message", "GetItem failed: " + exception));
-    }
-
-    private void doQuery(final Message<JsonObject> message) {
-        String table = message.body().getString("table");
-        String index = message.body().getString("index");
-        QueryRequest request = new QueryRequest();
-        if (table != null) {
-            request.setTableName(table);
-        }
-        if (index != null) {
-            request.setIndexName(index);
-        }
-        request.setKeyConditions(JsonConverter.conditionFromJson(message.body().getObject("document")));
-
-        dbClient.queryAsync(request, new AsyncHandler<QueryRequest, QueryResult>() {
-            @Override
-            public void onError(Exception exception) {
-                logger.error("Query failed", exception);
-                fail(message, exception);
-            }
-
-            @Override
-            public void onSuccess(QueryRequest request, QueryResult queryResult) {
-                message.reply(new JsonObject()
-                        .putString("status", "ok")
-                        .putArray("results", JsonConverter.resultsToJson(queryResult.getItems())));
-            }
-        });
+        executor.doAction(container, dbClient, message);
     }
 
     @Override

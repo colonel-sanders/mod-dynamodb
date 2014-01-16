@@ -1,0 +1,5 @@
+{
+    "action": "Scan",
+    "table": "us_currency",
+    "testNotes": "full table scan scenario"
+}

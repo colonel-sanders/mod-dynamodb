@@ -3,7 +3,6 @@ package io.colonelsanders.vertx.dynamodb.json;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.amazonaws.services.dynamodbv2.model.ComparisonOperator;
 import com.amazonaws.services.dynamodbv2.model.Condition;
-import org.vertx.java.core.json.JsonArray;
 import org.vertx.java.core.json.JsonObject;
 
 import java.util.*;
@@ -17,12 +16,15 @@ public class JsonConverter {
         HashMap<String,AttributeValue> attribs = new HashMap<>();
         if (object != null) {
             for (Map.Entry<String,Object> e : object.toMap().entrySet()) {
-                attribs.put(e.getKey(), new AttributeValue(e.getValue().toString()));
+                attribs.put(e.getKey(), parseAttributeValue(e.getValue()));
             }
         }
         return attribs;
     }
 
+    /**
+     * Not supported yet: list types, binary types, IN conditions, probably other conditions.
+     */
     public static Map<String,Condition> conditionFromJson(JsonObject doc) {
         Map<String,Condition> conditions = new HashMap<>();
         for (Map.Entry<String,Object> e : doc.toMap().entrySet()) {
@@ -42,8 +44,7 @@ public class JsonConverter {
         Condition condition;
         condition = new Condition();
         condition.setComparisonOperator(ComparisonOperator.EQ);
-        AttributeValue value = new AttributeValue(e.getValue().toString());
-        condition.setAttributeValueList(Collections.singleton(value));
+        condition.setAttributeValueList(Collections.singleton(parseAttributeValue(e.getValue())));
         return condition;
     }
 
@@ -52,13 +53,35 @@ public class JsonConverter {
             throw new IllegalArgumentException("Complex conditional for field " + field + " should contain exactly one condition");
         }
         Object op = complexCondition.keySet().iterator().next();
-        Object filter = complexCondition.entrySet().iterator().next();
+        Object filter = complexCondition.values().iterator().next();
 
         Condition condition = new Condition();
-        condition.setComparisonOperator(operatorNamed(op));
-        AttributeValue value = new AttributeValue(filter.toString());
-        condition.setAttributeValueList(Collections.singleton(value));
+        ComparisonOperator comp = operatorNamed(op);
+        condition.setComparisonOperator(comp);
+        if (comp != ComparisonOperator.NULL && comp != ComparisonOperator.NOT_NULL) {
+            condition.setAttributeValueList(Collections.singleton(parseAttributeValue(filter)));
+        }
         return condition;
+    }
+
+    private static AttributeValue parseAttributeValue(Object value) {
+        if (value instanceof String) {
+            return new AttributeValue((String) value);
+        }
+        if (value instanceof Map) {
+            return parseAttributeValueMap((Map) value);
+        }
+        return parseAttributeValueMap(((JsonObject) value).toMap());
+    }
+
+    private static AttributeValue parseAttributeValueMap(Map<?,?> value) {
+        AttributeValue attributeValue = new AttributeValue();
+        if (value.get("N") != null) {
+            attributeValue.setN(value.get("N").toString());
+        } else {
+            attributeValue.setS(value.values().iterator().next().toString());
+        }
+        return attributeValue;
     }
 
     private static ComparisonOperator operatorNamed(Object value) {
@@ -80,11 +103,11 @@ public class JsonConverter {
         return object;
     }
 
-    public static JsonArray resultsToJson(List<Map<String,AttributeValue>> results) {
-        JsonArray array = new JsonArray();
+    public static List<JsonObject> resultsToJson(List<Map<String,AttributeValue>> results) {
+        ArrayList<JsonObject> array = new ArrayList<>();
         for (Map<String, AttributeValue> result : results)
         {
-            array.addObject(JsonConverter.resultToJson(result));
+            array.add(JsonConverter.resultToJson(result));
         }
         return array;
     }

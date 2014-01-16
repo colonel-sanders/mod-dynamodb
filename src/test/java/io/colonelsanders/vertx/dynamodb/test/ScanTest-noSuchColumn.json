@@ -1,0 +1,6 @@
+{
+    "action": "Scan",
+    "table": "us_currency",
+    "filter": { "no-such-column": "abcde" },
+    "testNotes": "filtering on a column that doesn't exist in the dataset returns no results"
+}

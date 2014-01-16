@@ -1,0 +1,6 @@
+{
+    "action": "Scan",
+    "table": "us_currency",
+    "filter": { "ones": { "gt" : { "N" : "2200000000" } } },
+    "testNotes": "filtered table scan scenario"
+}

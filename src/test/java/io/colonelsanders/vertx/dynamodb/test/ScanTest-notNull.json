@@ -1,0 +1,6 @@
+{
+    "action": "Scan",
+    "table": "us_currency",
+    "filter": { "twos": { "not_null": "" } },
+    "testNotes": "returns all rows, because 0 != null for numerics"
+}
