@@ -1,6 +1,6 @@
 {
     "action": "GetItem",
     "table": "us_currency",
-    "document": { "guid": "11111111-ccd5-4a90-8e43-3e97e7e09836" },
+    "key": { "guid": "11111111-ccd5-4a90-8e43-3e97e7e09836" },
     "testNotes": "key doesn't exist in the database"
 }

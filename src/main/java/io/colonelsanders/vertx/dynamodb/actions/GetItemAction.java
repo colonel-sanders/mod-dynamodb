@@ -17,7 +17,7 @@ public class GetItemAction implements DynamoDbAction {
         String table = message.body().getString("table");
         GetItemRequest request = new GetItemRequest()
                 .withTableName(table)
-                .withKey(JsonConverter.attributesFromJson(message.body().getObject("document")));
+                .withKey(JsonConverter.attributesFromJson(message.body().getObject("key")));
         dbClient.getItemAsync(request, new AsyncHandler<GetItemRequest, GetItemResult>() {
             @Override
             public void onError(Exception exception) {

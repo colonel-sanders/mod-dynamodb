@@ -2,6 +2,6 @@
     "action": "Query",
     "table": "us_currency",
     "index": "year-index",
-    "document": { "year": { "begins_with": "FY 19" } },
+    "key": { "year": { "begins_with": "FY 19" } },
     "testNotes": "scenario fails because DynamoDB doesn't currently support begins-with filters for key conditions"
 }
