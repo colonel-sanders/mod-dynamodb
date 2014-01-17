@@ -1,0 +1,6 @@
+{
+    "action": "DeleteItem",
+    "table": "us_currency",
+    "key": { "guid": "333333333-2c04-4fdc-9d3c-0b1146411230" },
+    "testNotes": "non-failure scenario; record does not exist"
+}

@@ -1,0 +1,6 @@
+{
+    "action": "DeleteItem",
+    "table": "us_currency",
+    "key": { "guid": "17c3d8fd-2c04-4fdc-9d3c-0b1146411230" },
+    "testNotes": "successful scenario"
+}

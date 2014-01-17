@@ -92,9 +92,6 @@ public class JsonConverter {
         return attributeValue;
     }
 
-    /**
-     * Not supported yet: omitting the PUT, but including the datatype
-     */
     private static AttributeValueUpdate parseAttributeValueUpdate(Object value) {
         if (value instanceof String) {
             return new AttributeValueUpdate(parseAttributeValue(value), AttributeAction.PUT);
@@ -109,7 +106,11 @@ public class JsonConverter {
             throw new IllegalArgumentException("Attribute update value should contain exactly one operator");
         }
 
-        Object action = value.keySet().iterator().next();
+        AttributeAction action = actionNamed(value.keySet().iterator().next());
+        if (action == null) {
+            return new AttributeValueUpdate().withAction(AttributeAction.PUT).withValue(parseAttributeValueMap(value));
+        }
+
         Object val = value.values().iterator().next();
         return new AttributeValueUpdate()
                 .withAction(actionNamed(action))

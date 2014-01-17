@@ -25,6 +25,7 @@ public class QueryAction implements DynamoDbAction {
             request.setIndexName(index);
         }
         request.setKeyConditions(JsonConverter.conditionFromJson(message.body().getObject("key")));
+        request.setConsistentRead(message.body().getBoolean("consistent_read", false));
 
         new PaginatedQueryResultHandler(dbClient, message, vertxContainer.logger()).firstPage(request);
     }

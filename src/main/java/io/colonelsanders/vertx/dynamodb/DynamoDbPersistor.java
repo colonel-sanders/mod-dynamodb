@@ -48,6 +48,8 @@ public class DynamoDbPersistor extends BusModBase implements Handler<Message<Jso
                 executor = new ScanAction(); break;
             case UpdateItem:
                 executor = new UpdateItemAction(); break;
+            case DeleteItem:
+                executor = new DeleteItemAction(); break;
         }
         executor.doAction(container, dbClient, message);
     }
