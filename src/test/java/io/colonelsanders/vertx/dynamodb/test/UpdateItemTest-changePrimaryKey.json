@@ -1,0 +1,9 @@
+{
+    "action": "UpdateItem",
+    "table": "us_currency",
+    "key": { "guid": "85b443bf-ccd5-4a90-8e43-3e97e7e09836" },
+    "attributes": {
+        "guid": { "put": "22222222-ccd5-4a90-8e43-3e97e7e09836" }
+    },
+    "testNotes": "DynamoDB rejects attempts to update columns that are part of the primary key"
+}

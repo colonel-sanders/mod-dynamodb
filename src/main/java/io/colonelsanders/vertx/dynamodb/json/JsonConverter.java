@@ -92,6 +92,9 @@ public class JsonConverter {
         return attributeValue;
     }
 
+    /**
+     * Not supported yet: omitting the PUT, but including the datatype
+     */
     private static AttributeValueUpdate parseAttributeValueUpdate(Object value) {
         if (value instanceof String) {
             return new AttributeValueUpdate(parseAttributeValue(value), AttributeAction.PUT);

@@ -7,6 +7,7 @@ import org.vertx.java.core.json.JsonObject;
 import java.io.IOException;
 
 import static org.vertx.testtools.VertxAssert.assertEquals;
+import static org.vertx.testtools.VertxAssert.assertTrue;
 
 public class UpdateItemTest extends TestBase {
     @Test
@@ -15,6 +16,17 @@ public class UpdateItemTest extends TestBase {
             @Override
             public void validateResponse(Message<JsonObject> event) {
                 assertEquals("ok", event.body().getString("status"));
+            }
+        });
+    }
+
+    @Test
+    public void testChangePrimaryKey() throws IOException {
+        sendSample("UpdateItemTest-changePrimaryKey.json", new ResponseValidations() {
+            @Override
+            public void validateResponse(Message<JsonObject> event) {
+                assertEquals("error", event.body().getString("status"));
+                assertTrue(event.body().getString("message").contains("This attribute is part of the key"));
             }
         });
     }

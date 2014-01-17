@@ -1,35 +1,33 @@
 package io.colonelsanders.vertx.dynamodb.test.data;
 
+import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.BasicAWSCredentials;
-import com.amazonaws.handlers.AsyncHandler;
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDBAsync;
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDBAsyncClient;
+import com.amazonaws.auth.PropertiesCredentials;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 import com.amazonaws.services.dynamodbv2.model.*;
 import com.amazonaws.services.dynamodbv2.util.Tables;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
-import java.util.concurrent.TimeUnit;
 
-public class SampleDataPopulator implements AsyncHandler<PutItemRequest,PutItemResult> {
+public class SampleDataPopulator {
 
     public static final String TABLE_NAME = "us_currency";
 
-    private final AmazonDynamoDBAsync client;
-    private final List<Exception> failures;
+    private final AmazonDynamoDB client;
 
-    public SampleDataPopulator(AmazonDynamoDBAsync client) {
+    public SampleDataPopulator(AmazonDynamoDB client) {
         this.client = client;
-        this.failures = Collections.synchronizedList(new ArrayList<Exception>());
     }
 
     public void createTestTable() {
         if (tableExists()) {
-            System.out.println("Table " + TABLE_NAME + " already exists");
             return;
         }
         System.out.println("Creating table " + TABLE_NAME);
@@ -66,6 +64,41 @@ public class SampleDataPopulator implements AsyncHandler<PutItemRequest,PutItemR
         }
     }
 
+    public void clearTestTableData() {
+        System.out.println("Clearing existing test data");
+
+        //get all item keys, 25 at a time
+        List<List<String>> guids = new ArrayList<>();
+        ScanRequest scanRequest = new ScanRequest()
+                .withTableName(TABLE_NAME)
+                .withLimit(25)
+                .withAttributesToGet("guid");
+        ScanResult result;
+        do {
+            result = client.scan(scanRequest);
+            List<String> setGuids = new ArrayList<>(result.getCount());
+            for (Map<String,AttributeValue> row : result.getItems()) {
+                setGuids.add(row.get("guid").getS());
+            }
+            guids.add(setGuids);
+            if (result.getLastEvaluatedKey() != null && !result.getLastEvaluatedKey().isEmpty()) {
+                scanRequest.setExclusiveStartKey(result.getLastEvaluatedKey());
+            }
+        } while (result.getLastEvaluatedKey() != null && !result.getLastEvaluatedKey().isEmpty());
+
+        if (!guids.isEmpty() && !guids.get(0).isEmpty()) {
+            //delete all items, 25 at a time
+            for (List<String> setGuids : guids) {
+                List<WriteRequest> deletes = new ArrayList<>();
+                for (String guid : setGuids) {
+                    deletes.add(new WriteRequest(
+                            new DeleteRequest(Collections.singletonMap("guid", new AttributeValue().withS(guid)))));
+                }
+                client.batchWriteItem(new BatchWriteItemRequest(Collections.singletonMap(TABLE_NAME, deletes)));
+            }
+        }
+    }
+
     public void populateTestTableData() throws IOException {
         InputStream currencyData = getClass().getResourceAsStream("us-currency-printing.json");
         ObjectNode root = new ObjectMapper().readValue(currencyData, ObjectNode.class);
@@ -90,7 +123,7 @@ public class SampleDataPopulator implements AsyncHandler<PutItemRequest,PutItemR
                 long val = parseNumeric(data.get(i).get(column).asText());
                 item.put(e.getValue(), new AttributeValue().withN(String.valueOf(val)));
             }
-            client.putItemAsync(new PutItemRequest().withTableName(TABLE_NAME).withItem(item), this);
+            client.putItem(new PutItemRequest().withTableName(TABLE_NAME).withItem(item));
         }
     }
 
@@ -114,37 +147,23 @@ public class SampleDataPopulator implements AsyncHandler<PutItemRequest,PutItemR
         }
     }
 
-    @Override
-    public void onError(Exception e) {
-        failures.add(e);
-    }
-
-    @Override
-    public void onSuccess(PutItemRequest putItemRequest, PutItemResult putItemResult) {}
-
-    public List<Exception> getFailures() {
-        synchronized (failures) {
-            return new ArrayList<>(failures);
+    public static void main(String[] args) throws IOException {
+        if (args.length == 0) {
+            System.err.println("Specify either username/password or path to credentials properties file");
+            return;
         }
-    }
-
-    public static void main(String[] args) throws IOException, InterruptedException {
-        String accessKey = args[0];
-        String secretKey = args[1];
-        AmazonDynamoDBAsyncClient client = new AmazonDynamoDBAsyncClient(new BasicAWSCredentials(accessKey, secretKey));
-        SampleDataPopulator dataPopulator = new SampleDataPopulator(client);
-        dataPopulator.createTestTable();
-        dataPopulator.populateTestTableData();
-
-        System.out.println("Waiting for completion");
-        client.getExecutorService().shutdown();
-        client.getExecutorService().awaitTermination(5L, TimeUnit.MINUTES);
-
-        if (!dataPopulator.getFailures().isEmpty()) {
-            System.err.println("There were failures when writing test data:");
-            for (Exception e : dataPopulator.getFailures()) {
-                System.err.println(e);
-            }
+        AWSCredentials credentials;
+        if (args.length == 1) {
+            credentials = new PropertiesCredentials(new File(args[0]));
+        } else {
+            String accessKey = args[0];
+            String secretKey = args[1];
+            credentials = new BasicAWSCredentials(accessKey, secretKey);
         }
+        AmazonDynamoDBClient client = new AmazonDynamoDBClient(credentials);
+        SampleDataPopulator populator = new SampleDataPopulator(client);
+        populator.createTestTable();
+        populator.clearTestTableData();
+        populator.populateTestTableData();
     }
 }

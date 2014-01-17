@@ -1,5 +1,11 @@
 package io.colonelsanders.vertx.dynamodb.test;
 
+import com.amazonaws.auth.PropertiesCredentials;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
+import io.colonelsanders.vertx.dynamodb.test.data.SampleDataExternalResource;
+import io.colonelsanders.vertx.dynamodb.test.data.SampleDataPopulator;
+import org.junit.ClassRule;
+import org.junit.rules.ExternalResource;
 import org.vertx.java.core.AsyncResult;
 import org.vertx.java.core.AsyncResultHandler;
 import org.vertx.java.core.Handler;
@@ -15,6 +21,9 @@ import static org.vertx.testtools.VertxAssert.testComplete;
 public abstract class TestBase extends TestVerticle {
 
     public static final String ADDRESS = "test.mod-dynamodb";
+
+    @ClassRule
+    public static ExternalResource dataPopulator = new SampleDataExternalResource();
 
     /**
      * Deploy an instance of the DynamoDB vertx for test. AWS credentials are loaded from a properties file in the user's
