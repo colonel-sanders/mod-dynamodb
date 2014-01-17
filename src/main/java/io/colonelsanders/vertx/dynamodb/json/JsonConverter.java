@@ -1,8 +1,6 @@
 package io.colonelsanders.vertx.dynamodb.json;
 
-import com.amazonaws.services.dynamodbv2.model.AttributeValue;
-import com.amazonaws.services.dynamodbv2.model.ComparisonOperator;
-import com.amazonaws.services.dynamodbv2.model.Condition;
+import com.amazonaws.services.dynamodbv2.model.*;
 import org.vertx.java.core.json.JsonObject;
 
 import java.util.*;
@@ -17,6 +15,16 @@ public class JsonConverter {
         if (object != null) {
             for (Map.Entry<String,Object> e : object.toMap().entrySet()) {
                 attribs.put(e.getKey(), parseAttributeValue(e.getValue()));
+            }
+        }
+        return attribs;
+    }
+
+    public static Map<String, AttributeValueUpdate> attributeUpdatesFromJson(JsonObject object) {
+        HashMap<String,AttributeValueUpdate> attribs = new HashMap<>();
+        if (object != null) {
+            for (Map.Entry<String,Object> e : object.toMap().entrySet()) {
+                attribs.put(e.getKey(), parseAttributeValueUpdate(e.getValue()));
             }
         }
         return attribs;
@@ -84,10 +92,40 @@ public class JsonConverter {
         return attributeValue;
     }
 
+    private static AttributeValueUpdate parseAttributeValueUpdate(Object value) {
+        if (value instanceof String) {
+            return new AttributeValueUpdate(parseAttributeValue(value), AttributeAction.PUT);
+        } else if (value instanceof Map) {
+            return parseAttributeValueUpdateMap((Map) value);
+        }
+        return parseAttributeValueUpdateMap(((JsonObject) value).toMap());
+    }
+
+    private static AttributeValueUpdate parseAttributeValueUpdateMap(Map<?,?> value) {
+        if (value.size() != 1) {
+            throw new IllegalArgumentException("Attribute update value should contain exactly one operator");
+        }
+
+        Object action = value.keySet().iterator().next();
+        Object val = value.values().iterator().next();
+        return new AttributeValueUpdate()
+                .withAction(actionNamed(action))
+                .withValue(parseAttributeValue(val));
+    }
+
     private static ComparisonOperator operatorNamed(Object value) {
         for (ComparisonOperator op : ComparisonOperator.values()) {
             if (op.name().equals(value.toString().toUpperCase())) {
                 return op;
+            }
+        }
+        return null;
+    }
+
+    private static AttributeAction actionNamed(Object value) {
+        for (AttributeAction action : AttributeAction.values()) {
+            if (action.name().equals(value.toString().toUpperCase())) {
+                return action;
             }
         }
         return null;

@@ -3,5 +3,5 @@
     "table": "us_currency",
     "index": "year-index",
     "key": { "year": { "begins_with": "FY 19" } },
-    "testNotes": "scenario fails because DynamoDB doesn't currently support begins-with filters for key conditions"
+    "testNotes": "scenario fails because DynamoDB doesn't currently support begins-with filters for secondary key conditions"
 }

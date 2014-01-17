@@ -2,10 +2,7 @@ package io.colonelsanders.vertx.dynamodb;
 
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBAsync;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBAsyncClient;
-import io.colonelsanders.vertx.dynamodb.actions.DynamoDbAction;
-import io.colonelsanders.vertx.dynamodb.actions.GetItemAction;
-import io.colonelsanders.vertx.dynamodb.actions.QueryAction;
-import io.colonelsanders.vertx.dynamodb.actions.ScanAction;
+import io.colonelsanders.vertx.dynamodb.actions.*;
 import org.vertx.java.busmods.BusModBase;
 import org.vertx.java.core.Handler;
 import org.vertx.java.core.eventbus.Message;
@@ -49,6 +46,8 @@ public class DynamoDbPersistor extends BusModBase implements Handler<Message<Jso
                 executor = new QueryAction(); break;
             case Scan:
                 executor = new ScanAction(); break;
+            case UpdateItem:
+                executor = new UpdateItemAction(); break;
         }
         executor.doAction(container, dbClient, message);
     }

@@ -1,0 +1,9 @@
+{
+    "action": "UpdateItem",
+    "table": "us_currency",
+    "key": { "guid": "85b443bf-ccd5-4a90-8e43-3e97e7e09836" },
+    "attributes": {
+        "twos": { "put": { "N": "202800000" } }
+    },
+    "testNotes": "successful scenario"
+}
